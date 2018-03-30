@@ -1,6 +1,8 @@
 import numpy as np
 import cv2 as cv
 
+print("Color detection options: 1-Blue, 2-Green, 3-Blue and Green. Enter you option:")
+inp = int(input(''))
 cap = cv.VideoCapture(0)
 
 while (True):
@@ -24,8 +26,13 @@ while (True):
 	# cnt = contours[0]
 	# area = cv.contourArea(cnt)
 	# print(area)
-	cv.drawContours(frame,contours,-1,(0,255,0),3)
-	cv.drawContours(frame,contours1,-1,(255,51,51),3)
+	if(inp == 1):
+		cv.drawContours(frame,contours,-1,(0,255,0),3)
+	if(inp == 2):
+		cv.drawContours(frame,contours1,-1,(255,51,51),3)
+	if(inp == 3):
+		cv.drawContours(frame,contours1,-1,(255,51,51),3)
+		cv.drawContours(frame,contours,-1,(0,255,0),3)
 	cv.imshow('frame',frame)
 	cv.imshow('mask',masking)
 	cv.imshow('res',res)
